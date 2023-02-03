@@ -1,0 +1,43 @@
+version: "3.9"
+networks:
+  grp-net:
+
+services:
+  apache:
+    container_name: engine_img
+    image: engine_img
+    ports:
+      - "8000:80"
+    volumes: 
+      - "./:/var/www/html"
+    networks:
+      - grp-net
+    depends_on:
+      - Redis0-grp
+      - db0-grp
+
+  Redis0-grp:
+    container_name: redis0-grp
+    image: redis:latest
+    volumes:
+      - ./redis:/data
+    networks:
+      - grp-net
+
+  db0-grp:
+    container_name: db0-grp
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: path
+
+    volumes:
+      - ./db0:/var/lib/mysql
+      - ./dump:/docker-entrypoint-initdb.d
+    networks:
+      - grp-net
+
