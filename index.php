@@ -1,57 +1,93 @@
 <!DOCTYPE html>
+
+<?php
+
+//will need to pull values from database here
+//in order to populate the images, etc. 
+
+
+?>
+
+
 <html>
   <head>
     <title>jQuery Form Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
       rel="stylesheet"
       href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="style.css">
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="form.js"></script>
+    <script src="/js/form.js"></script>
+    <script src="/js/movie_selector.js"></script>
 
   </head>
   <body>
-    <div class="col-sm-6 col-sm-offset-3">
-      <h1>Processing an AJAX Form</h1>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <h1>Processing an AJAX Form</h1>
 
-      <form action="process.php" method="POST">
-        <div id="name-group" class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            name="name"
-            placeholder="Full Name"
-          />
-        </div>
+        <form action="process.php" method="POST">
+          <div id="name-group" class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Full Name"
+            />
+          </div>
 
-        <div id="email-group" class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="text"
-            class="form-control"
-            id="email"
-            name="email"
-            placeholder="email@example.com"
-          />
-        </div>
+          <div id="email-group" class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="email@example.com"
+            />
+          </div>
 
-        <div id="superhero-group" class="form-group">
-          <label for="superheroAlias">Superhero Alias</label>
-          <input
-            type="text"
-            class="form-control"
-            id="superheroAlias"
-            name="superheroAlias"
-            placeholder="Ant Man, Wonder Woman, Black Panther, Superman, Black Widow"
-          />
-        </div>
+          <div id="superhero-group" class="form-group">
+            <label for="superheroAlias">Superhero Alias</label>
+            <input
+              type="text"
+              class="form-control"
+              id="superheroAlias"
+              name="superheroAlias"
+              placeholder="Ant Man, Wonder Woman, Black Panther, Superman, Black Widow"
+            />
+          </div>
 
-        <button type="submit" class="btn btn-success">
-          Submit
-        </button>
-      </form>
+          <button type="submit" class="btn btn-success">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="column">
+        <img src="/images/frozen.jpg" id="movies-frozen">
+        
+      </div>
+      <div class="column">
+        <img src="/images/antman.jpg" id="movies-antman">
+        
+      </div>
+    </div>
+    <div class="row" id="movie-text">
+    </div>
+
+    
+    <footer>
+  <p>Footer</p>
+</footer>
+
+
   </body>
 </html>

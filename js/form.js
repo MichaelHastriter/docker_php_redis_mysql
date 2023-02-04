@@ -1,3 +1,4 @@
+console.log("form js ready");
 $(document).ready(function () {
   $("form").submit(function (event) {
     var formData = {
