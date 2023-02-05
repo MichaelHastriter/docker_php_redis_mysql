@@ -5,11 +5,12 @@ $(document).ready(function () {
       name: $("#name").val(),
       email: $("#email").val(),
       superheroAlias: $("#superheroAlias").val(),
+      action: "register"
     };
 
     $.ajax({
       type: "POST",
-      url: "process.php",
+      url: "process_form.php",
       data: formData,
       dataType: "json",
       encode: true,
@@ -39,7 +40,7 @@ $(document).ready(function () {
         }
     } else {
         $("form").html(
-          '<div class="alert alert-success">' + data.message + "</div>"
+          '<div class="alert alert-success">Welcome! ' + data.name + "</div>"
         );
       }
 
